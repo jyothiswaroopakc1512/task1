@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Task-8</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+    <style>
+        th {
+            width: 150px;
+        }
+        .bg-container {
+            background-image: linear-gradient(to bottom, #ffffcc, #e93aaf93);
+            padding: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-container p-5" style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+        <h1 style="color: blue; text-align: center;">Registration Form</h1>
+
+        <form class="form" onsubmit="return validateForm()">
+            <table>
+                <tr>
+                    <th><label class="form-label">Firstname</label></th>
+                    <td><input class="form-control" type="text" id="firstname" /></td>
+                    <td><span class="mx-2 text-danger" id="firstname-error"></span></td>
+                </tr>
+                <tr>
+                    <th><label class="form-label">Last Name</label></th>
+                    <td><input class="form-control" type="text" style="width: 300px;" id="lastname" /></td>
+                    <td><span class="mx-2 text-danger" id="lastname-error"></span></td>
+                </tr>
+                <tr>
+                    <th><label class="form-label">Email</label></th>
+                    <td><input class="form-control" type="email" style="width: 300px;" id="email" /></td>
+                    <td><span class="mx-2 text-danger" id="email-error"></span></td>
+                </tr>
+                <tr>
+                    <th><label class="form-label">Password</label></th>
+                    <td><input class="form-control" type="password" style="width: 300px;" id="password" /></td>
+                    <td><span class="mx-2 text-danger" id="password-error"></span></td>
+                </tr>
+                <tr>
+                    <th><label class="form-label">Re-enter Password</label></th>
+                    <td><input class="form-control" type="password" style="width: 300px;" id="repassword" /></td>
+                    <td><span class="mx-2 text-danger" id="repassword-error"></span></td>
+                </tr>
+                <tr>
+                    <th rowspan="2"><label class="form-label">Gender:</label></th>
+                    <td>
+                        <input type="radio" name="gender" value="Male" checked /> <label>Male</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="radio" name="gender" value="Female" /> <label>Female</label>
+                    </td>    
+                </tr>
+                <tr>
+                    <th><label class="form-label">Age:</label></th>
+                    <td><input class="form-control" type="number" style="width: 300px;" id="age" /></td>
+                    <td><span class="mx-2 text-danger" id="age-error"></span></td>
+                </tr>
+                <tr>
+                    <th><label class="form-label">Phone Number:</label></th>
+                    <td><input class="form-control" type="number" style="width: 300px;" id="phone" /></td>
+                    <td><span class="mx-2 text-danger" id="phone-error"></span></td>
+                </tr>
+                <tr>
+                    <th><label class="form-label">Address:</label></th>
+                    <td><textarea class="form-control" cols="20" rows="5" style="width: 300px;" id="address"></textarea></td>
+                    <td><span class="mx-2 text-danger" id="address-error"></span></td>
+                </tr>
+                <tr>
+                    <th><label class="form-label">State:</label></th>
+                    <td><input class="form-control" type="text" style="width: 300px;" id="state" /></td>
+                    <td><span class="mx-2 text-danger" id="state-error"></span></td>
+                </tr>
+                <tr>
+                    <th><label class="form-label">Country:</label></th>
+                    <td>
+                        <select class="form-select">
+                            <option>Choose Your Country</option>
+                            <option>India</option>
+                            <option>USA</option>
+                            <option>UK</option>
+                            <option>Australia</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th><label class="form-label">Languages Known:</label></th>
+                    <td>
+                        <input type="checkbox" /><label> English</label>
+                        <input type="checkbox" /><label> Kannada</label>
+                        <input type="checkbox" /><label> Hindi</label>
+                        <input type="checkbox" /><label> Telugu</label>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="checkbox" name="declaration" checked /> Hereby I declare all the given details are true
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align:right;"><p>Log into <a href="https://www.ethnus.com" target="_blank">Ethnus</a> website</p></td>
+                </tr>
+            </table>
+            <div class="text-center">
+                <button style="margin: 10px; border-radius: 10px; border-width: 0px; height: 30px; width: 100px;" class="bg-danger text-light" type="submit">Register</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function validateForm() {
+            var firstName = document.getElementById("firstname").value;
+            var lastName = document.getElementById("lastname").value;
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            var rePassword = document.getElementById("repassword").value;
+            var age = document.getElementById("age").value;
+            var phone = document.getElementById("phone").value;
+            var address = document.getElementById("address").value;
+            var state = document.getElementById("state").value;
+
+            if (firstName.trim() === "") {
+                document.getElementById("firstname-error").textContent = "POOR";
+                document.getElementById("firstname-error").style.color = "red";
+            }
+
+            if (lastName.trim() === "") {
+                document.getElementById("lastname-error").textContent = "POOR";
+                document.getElementById("lastname-error").style.color = "red";
+            }
+
+            if (email.trim() === "") {
+                document.getElementById("email-error").textContent = "POOR";
+                document.getElementById("email-error").style.color = "red";
+            }
+
+            if (password.trim() === "") {
+                document.getElementById("password-error").textContent = "POOR";
+                document.getElementById("password-error").style.color = "red";
+            }
+
+            if (rePassword.trim() === "" || rePassword !== password) {
+                document.getElementById("repassword-error").textContent = "POOR OR MISMATCH";
+                document.getElementById("repassword-error").style.color = "red";
+            }
+
+            if (age.trim() === "") {
+                document.getElementById("age-error").textContent = "POOR";
+                document.getElementById("age-error").style.color = "red";
+            }
+
+            if (phone.trim() === "") {
+                document.getElementById("phone-error").textContent = "POOR";
+                document.getElementById("phone-error").style.color = "red";
+            }
+
+            if (address.trim() === "") {
+                document.getElementById("address-error").textContent = "POOR";
+                document.getElementById("address-error").style.color = "red";
+            }
+
+            if (state.trim() === "") {
+                document.getElementById("state-error").textContent = "POOR";
+                document.getElementById("state-error").style.color = "red";
+            }
+            return false;
+        }
+    </script>
+</body>
+</html>
